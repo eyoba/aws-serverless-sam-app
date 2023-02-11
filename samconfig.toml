@@ -3,7 +3,7 @@ version = 0.1
 [default.deploy]
 [default.deploy.parameters]
 stack_name = "aws-serverless-sam-app"
-s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-mqp5aw9fmwft"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1gxohzui3uyiw"
 s3_prefix = "aws-serverless-sam-app"
 region = "eu-north-1"
 confirm_changeset = true
