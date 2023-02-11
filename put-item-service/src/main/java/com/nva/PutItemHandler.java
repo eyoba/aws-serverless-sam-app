@@ -1,48 +1,51 @@
 package com.nva;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
+import com.google.gson.Gson;
+import com.nva.core.Book;
+import com.nva.core.DependencyFactory;
+import software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedClient;
+import software.amazon.awssdk.enhanced.dynamodb.DynamoDbTable;
+import software.amazon.awssdk.enhanced.dynamodb.TableSchema;
+import java.util.Collections;
+
 
 /**
  * Handler for requests to Lambda function.
  */
 public class PutItemHandler implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
+    static final int STATUS_CODE_NO_CONTENT = 204;
+    static final int STATUS_CODE_CREATED = 201;
+    private final DynamoDbEnhancedClient dbClient;
+    private final String tableName;
+    private final TableSchema<Book> bookTableSchema;
+
+    public PutItemHandler() {
+        dbClient = DependencyFactory.dynamoDbEnhancedClient();
+        tableName = DependencyFactory.tableName();;
+        bookTableSchema = TableSchema.fromBean(Book.class);
+    }
+
     public APIGatewayProxyResponseEvent handleRequest(final APIGatewayProxyRequestEvent input, final Context context) {
-        Map<String, String> headers = new HashMap<>();
-        headers.put("Content-Type", "application/json");
-        headers.put("X-Custom-Header", "application/json");
+        int statusCode = STATUS_CODE_NO_CONTENT;
+        String body = input.getBody();
+        Book book = new Gson().fromJson(body, Book.class);
 
-        APIGatewayProxyResponseEvent response = new APIGatewayProxyResponseEvent()
-                .withHeaders(headers);
-        try {
-            final String pageContents = this.getPageContents("https://checkip.amazonaws.com");
-            String output = String.format("{ \"message\": \"hello world\", \"location\": \"%s\" }", pageContents);
+        DynamoDbTable<Book> booksTable = dbClient.table(tableName, bookTableSchema);
+        booksTable.putItem(book);
+        statusCode = STATUS_CODE_CREATED;
 
-            return response
-                    .withStatusCode(200)
-                    .withBody(output);
-        } catch (IOException e) {
-            return response
-                    .withBody("{}")
-                    .withStatusCode(500);
-        }
+        return new APIGatewayProxyResponseEvent().withStatusCode(statusCode)
+                .withIsBase64Encoded(Boolean.FALSE)
+                .withHeaders(Collections.emptyMap());
+
+
     }
 
-    private String getPageContents(String address) throws IOException{
-        URL url = new URL(address);
-        try(BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()))) {
-            return br.lines().collect(Collectors.joining(System.lineSeparator()));
-        }
-    }
+
 }
