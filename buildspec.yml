@@ -6,8 +6,6 @@ phases:
       java: corretto17
     pre_build:
       - echo nothing to do
-    commands:
-      - cp ./settings.xml /root/.m2/settings.xml
   build:
     commands:
       - sam build
