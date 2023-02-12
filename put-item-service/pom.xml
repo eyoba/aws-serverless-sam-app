@@ -49,9 +49,13 @@
             <groupId>com.nva.core</groupId>
             <artifactId>item-service-core</artifactId>
             <version>1.0</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
-
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-lambda-java-core</artifactId>
+            <version>1.2.1</version>
+        </dependency>
     </dependencies>
 
     <build>
