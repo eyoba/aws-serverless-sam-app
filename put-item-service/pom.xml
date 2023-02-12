@@ -4,7 +4,7 @@
     <groupId>com.nva</groupId>
     <artifactId>put-item-service</artifactId>
     <version>1.0</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <name>A sample put-item-service created for SAM CLI.</name>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -45,13 +45,7 @@
             <artifactId>url-connection-client</artifactId>
             <version>2.20.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.nva.core</groupId>
-            <artifactId>item-service-core</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/../item-service-core/target/item-service-core-1.0.jar</systemPath>
-        </dependency>
+
     </dependencies>
 
     <build>
