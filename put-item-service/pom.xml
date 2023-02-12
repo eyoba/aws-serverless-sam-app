@@ -56,7 +56,7 @@
     <repositories>
         <repository>
             <id>lib_id</id>
-            <url>file://${project.basedir}/lib</url>
+            <url>file:///tmp/tmpefer8vry/lib</url>
         </repository>
     </repositories>
     <build>
