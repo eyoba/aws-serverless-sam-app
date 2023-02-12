@@ -12,6 +12,17 @@ Globals:
     MemorySize: 128
 
 Resources:
+
+  # Lambda Layer for the Lambda functions
+  MyLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      ContentUri: lambda-layer
+      CompatibleRuntimes:
+        - java11
+    Metadata:
+      BuildMethod: java11
+
   # DynamoDB table
   BooksTable:
     Type: AWS::DynamoDB::Table
