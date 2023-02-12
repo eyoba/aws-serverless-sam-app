@@ -3,11 +3,10 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-
     <groupId>com.nva.core</groupId>
     <artifactId>item-service-core</artifactId>
     <version>1.0</version>
+    <packaging>jar</packaging>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -15,28 +14,6 @@
         <aws.java.sdk.version>2.15.79</aws.java.sdk.version>
         <maven.compiler.plugin.version>3.6.1</maven.compiler.plugin.version>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>dynamodb-enhanced</artifactId>
-            <version>2.20.0</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>url-connection-client</artifactId>
-            <version>2.20.0</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.10.1</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
-
 
 
 </project>
