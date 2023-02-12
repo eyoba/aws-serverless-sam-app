@@ -46,10 +46,10 @@
             <version>2.20.0</version>
         </dependency>
         <dependency>
-            <groupId>com.nva.core</groupId>
+            <groupId>com.nva</groupId>
             <artifactId>item-service-core</artifactId>
             <version>1.0</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
 
 
