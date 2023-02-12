@@ -49,8 +49,7 @@
             <groupId>com.nva.core</groupId>
             <artifactId>item-service-core</artifactId>
             <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/../item-service-core/target/item-service-core-1.0.jar</systemPath>
+            <scope>compile</scope>
         </dependency>
 
     </dependencies>
