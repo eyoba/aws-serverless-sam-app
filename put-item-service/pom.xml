@@ -4,12 +4,15 @@
     <groupId>com.nva</groupId>
     <artifactId>put-item-service</artifactId>
     <version>1.0</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <name>A sample put-item-service created for SAM CLI.</name>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
+    <modules>
+        <module> ../item-service-core</module>
+    </modules>
     <dependencies>
         <dependency>
             <groupId>com.amazonaws</groupId>
@@ -49,16 +52,10 @@
             <groupId>com.nva.core</groupId>
             <artifactId>item-service-core</artifactId>
             <version>1.0</version>
-
         </dependency>
 
     </dependencies>
-    <repositories>
-        <repository>
-            <id>lib_id</id>
-            <url>file:///tmp/tmpefer8vry/lib</url>
-        </repository>
-    </repositories>
+
     <build>
         <plugins>
             <plugin>
