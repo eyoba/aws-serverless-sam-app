@@ -1,4 +1,4 @@
-package com.nva;
+package com.nva.core;
 
 import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
 import software.amazon.awssdk.core.SdkSystemSetting;

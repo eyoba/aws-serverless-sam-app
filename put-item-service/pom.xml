@@ -46,7 +46,7 @@
             <version>2.20.0</version>
         </dependency>
         <dependency>
-            <groupId>com.nva</groupId>
+            <groupId>com.nva.core</groupId>
             <artifactId>item-service-core</artifactId>
             <version>1.0</version>
             <scope>compile</scope>
