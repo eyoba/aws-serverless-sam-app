@@ -27,7 +27,7 @@ public class PutItemHandler implements RequestHandler<APIGatewayProxyRequestEven
 
     public PutItemHandler() {
         dbClient = DependencyFactory.dynamoDbEnhancedClient();
-        tableName = DependencyFactory.tableName();;
+        tableName = "books";//DependencyFactory.tableName();
         bookTableSchema = TableSchema.fromBean(Book.class);
     }
 

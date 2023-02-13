@@ -30,6 +30,7 @@ public class DependencyFactory {
 
     public static String tableName() {
         return System.getenv(ENV_VARIABLE_TABLE);
+
     }
 
 }
