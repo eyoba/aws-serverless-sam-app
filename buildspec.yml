@@ -8,11 +8,13 @@ phases:
       - echo nothing to do
   build:
     commands:
+      - mvn package
       - sam build
       - sam package --s3-bucket helloworldfromgithub --output-template-file outputtemplate.yaml
   post_build:
     commands:
       - echo Build started on `date`
+      - mvn package
 artifacts:
   files:
     - outputtemplate.yaml
