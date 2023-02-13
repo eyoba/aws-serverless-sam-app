@@ -1,4 +1,4 @@
-package com.nva.core;
+package com.nva;
 
 import com.google.gson.annotations.SerializedName;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
