@@ -35,8 +35,5 @@
             <version>2.10.1</version>
             <scope>compile</scope>
         </dependency>
-
     </dependencies>
-
-
 </project>
