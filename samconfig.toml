@@ -2,9 +2,9 @@ version = 0.1
 [default]
 [default.deploy]
 [default.deploy.parameters]
-stack_name = "aws-serverless-sam-app"
-s3_bucket = "helloworldfromgithub"
-s3_prefix = "aws-serverless-sam-app"
+stack_name = "aws-serverless-sam-app-withsam"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-18smtjsiuvmdg"
+s3_prefix = "aws-serverless-sam-app-withsam"
 region = "eu-north-1"
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"
